@@ -2,6 +2,8 @@
   --bg-page: #eef3f7;
   --phone-frame: #111827;
   --phone-edge: #2d3748;
+  --iphone-width: 9;
+  --iphone-height: 19;
   --screen-bg: linear-gradient(180deg, #fff7f4 0%, #f5f8fc 36%, #f6f7fb 100%);
   --header-bg: linear-gradient(180deg, #ff594f 0%, #ff7f5f 100%);
   --card-bg: rgba(255, 255, 255, 0.94);
@@ -23,7 +25,7 @@
 html,
 body {
   margin: 0;
-  height: 100%;
+  min-height: 100%;
   font-family: "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
   color: var(--text-main);
   background:
@@ -33,7 +35,7 @@ body {
 }
 
 body {
-  overflow: hidden;
+  min-height: 100vh;
 }
 
 a {
@@ -46,17 +48,19 @@ button {
 }
 
 .page-shell {
-  height: 100vh;
+  min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 28px 18px;
+  padding: 24px 18px;
 }
 
 .phone-frame {
-  width: min(100%, 420px);
-  height: clamp(680px, calc(100vh - 56px), 844px);
-  padding: 12px;
+  --phone-height: min(844px, calc(100vh - 48px));
+  width: calc(var(--phone-height) * var(--iphone-width) / var(--iphone-height));
+  max-width: calc(100vw - 36px);
+  height: var(--phone-height);
+  padding: 11px;
   border-radius: var(--radius-phone);
   background:
     linear-gradient(145deg, #1a2333 0%, #0f1729 100%);
@@ -455,6 +459,7 @@ button {
 
   .phone-frame {
     width: 100%;
+    aspect-ratio: auto;
     height: 100vh;
     border-radius: 0;
     padding: 0;
