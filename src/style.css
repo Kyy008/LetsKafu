@@ -264,6 +264,16 @@ button {
   display: flex;
   flex-direction: column;
   gap: 0;
+  position: relative;
+}
+
+.content-top-anchor {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 1px;
+  height: 1px;
+  pointer-events: none;
 }
 
 .content::-webkit-scrollbar {
@@ -284,14 +294,96 @@ button {
   border-radius: 0;
   background: rgba(255, 255, 255, 0.94);
   padding: 0;
+  position: relative;
+}
+
+.banner-track {
+  display: flex;
+  width: 200%;
+  animation: banner-carousel 8s ease-in-out infinite;
 }
 
 .banner-image {
-  width: 100%;
+  width: 50%;
+  flex: 0 0 50%;
   height: auto;
   display: block;
   margin: 0;
   border-radius: 0;
+}
+
+@keyframes banner-carousel {
+  0%,
+  42% {
+    transform: translateX(0);
+  }
+
+  50%,
+  92% {
+    transform: translateX(-50%);
+  }
+
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.banner-dots {
+  position: absolute;
+  left: 50%;
+  bottom: 10px;
+  display: flex;
+  gap: 6px;
+  transform: translateX(-50%);
+}
+
+.banner-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.72);
+  box-shadow: 0 4px 10px rgba(39, 48, 69, 0.16);
+}
+
+.banner-dot:first-child {
+  animation: banner-dot-first 10s step-end infinite;
+}
+
+.banner-dot:last-child {
+  animation: banner-dot-second 10s step-end infinite;
+}
+
+@keyframes banner-dot-first {
+  0%,
+  42%,
+  100% {
+    background: #5f92ff;
+  }
+
+  50%,
+  92% {
+    background: rgba(255, 255, 255, 0.72);
+  }
+}
+
+@keyframes banner-dot-second {
+  0%,
+  42%,
+  100% {
+    background: rgba(255, 255, 255, 0.72);
+  }
+
+  50%,
+  92% {
+    background: #5f92ff;
+  }
+}
+
+.products-section {
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
 }
 
 .products-section h2 {

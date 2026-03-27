@@ -81,9 +81,17 @@
           </nav>
         </header>
 
-        <main class="content" id="content-top">
+        <main class="content">
+          <div class="content-top-anchor" id="content-top" aria-hidden="true"></div>
           <section class="banner-section" aria-label="促销横幅">
-            <img class="banner-image" src="assets/content/banner.jpg" alt="商城促销横幅">
+            <div class="banner-track" id="banner-track">
+              <img class="banner-image" src="assets/content/banner.jpg" alt="商城促销横幅 1">
+              <img class="banner-image" src="assets/content/banner2.jpg" alt="商城促销横幅 2">
+            </div>
+            <div class="banner-dots" aria-label="轮播图分页">
+              <span class="banner-dot" aria-hidden="true"></span>
+              <span class="banner-dot" aria-hidden="true"></span>
+            </div>
           </section>
 
           <section class="products-section">
