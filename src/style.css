@@ -554,13 +554,54 @@ button {
   justify-content: center;
 }
 
+@keyframes nav-icon-wiggle {
+  0% {
+    transform: translateY(0) rotate(0deg) scale(1);
+  }
+
+  20% {
+    transform: translateY(-1px) rotate(-12deg) scale(1.04);
+  }
+
+  40% {
+    transform: translateY(0) rotate(10deg) scale(1.04);
+  }
+
+  60% {
+    transform: translateY(-1px) rotate(-8deg) scale(1.02);
+  }
+
+  80% {
+    transform: translateY(0) rotate(6deg) scale(1.01);
+  }
+
+  100% {
+    transform: translateY(0) rotate(0deg) scale(1);
+  }
+}
+
 .nav-icon {
   width: 32px;
   height: 32px;
+  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
   color: currentColor;
+  transition: color 180ms ease;
+}
+
+.nav-item:not(.nav-item--home) .nav-icon::before {
+  content: "";
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: rgba(199, 217, 251, 0.82);
+  opacity: 0;
+  transform: scale(0.8);
+  transition: opacity 180ms ease, transform 180ms ease;
+  z-index: 0;
 }
 
 .nav-icon svg {
@@ -571,6 +612,10 @@ button {
   stroke-width: 1.8;
   stroke-linecap: round;
   stroke-linejoin: round;
+  position: relative;
+  z-index: 1;
+  transform-origin: center center;
+  will-change: transform;
 }
 
 .nav-icon-image {
@@ -579,6 +624,8 @@ button {
   border-radius: 50%;
   object-fit: cover;
   display: block;
+  position: relative;
+  z-index: 1;
 }
 
 .nav-item--home .nav-icon {
@@ -601,6 +648,22 @@ button {
   color: var(--accent);
 }
 
+.nav-item:not(.nav-item--home):hover .nav-icon,
+.nav-item:not(.nav-item--home):focus-visible .nav-icon {
+  color: #6179a8;
+}
+
+.nav-item:not(.nav-item--home):hover .nav-icon::before,
+.nav-item:not(.nav-item--home):focus-visible .nav-icon::before {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.nav-item:not(.nav-item--home):hover .nav-icon svg,
+.nav-item:not(.nav-item--home):focus-visible .nav-icon svg {
+  animation: nav-icon-wiggle 420ms ease-out 1;
+}
+
 .float-button {
   position: absolute;
   right: 18px;
@@ -617,6 +680,7 @@ button {
   justify-content: center;
   cursor: pointer;
   transition: transform 180ms ease, box-shadow 180ms ease;
+  z-index: 10;
 }
 
 .float-button-icon {
