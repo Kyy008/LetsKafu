@@ -260,16 +260,10 @@ button {
   overflow-y: auto;
   overflow-x: hidden;
   scroll-behavior: smooth;
-  padding: 14px 16px 20px;
+  padding: 0 16px 20px;
   display: flex;
   flex-direction: column;
-  gap: 18px;
-}
-
-.content-top-anchor {
-  width: 1px;
-  height: 1px;
-  margin-top: -1px;
+  gap: 0;
 }
 
 .content::-webkit-scrollbar {
@@ -281,39 +275,29 @@ button {
   background: rgba(123, 130, 148, 0.35);
 }
 
-.module-card {
-  border-radius: var(--radius-card);
-  background: var(--card-bg);
-  border: 1px solid var(--card-border);
-  box-shadow: var(--shadow-card);
+.banner-section {
+  flex-shrink: 0;
+  overflow: hidden;
+  width: calc(100% + 32px);
+  margin: 0 -16px;
+  margin-bottom: 8px;
+  border-radius: 0;
+  background: rgba(255, 255, 255, 0.94);
+  padding: 0;
 }
 
-.module-banner {
-  min-height: 172px;
-  padding: 24px;
-  background:
-    radial-gradient(circle at right top, rgba(255, 211, 141, 0.85), transparent 28%),
-    linear-gradient(135deg, #ff6d57 0%, #ff845d 52%, #ffb078 100%);
-  color: #fff;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  gap: 10px;
+.banner-image {
+  width: 100%;
+  height: auto;
+  display: block;
+  margin: 0;
+  border-radius: 0;
 }
 
-.module-banner h1,
-.module-sale h2,
 .products-section h2 {
   margin: 0;
   font-size: 24px;
   line-height: 1.2;
-}
-
-.module-banner p:last-child,
-.product-copy p {
-  margin: 0;
-  line-height: 1.6;
-  font-size: 13px;
 }
 
 .module-tag {
@@ -323,13 +307,6 @@ button {
   text-transform: uppercase;
   letter-spacing: 0.12em;
   opacity: 0.85;
-}
-
-.module-sale {
-  padding: 18px;
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
 }
 
 .section-heading {
@@ -352,42 +329,8 @@ button {
   font-weight: 700;
 }
 
-.sale-strip {
-  display: flex;
-  gap: 12px;
-  overflow-x: auto;
-  padding-bottom: 2px;
-}
-
-.sale-strip::-webkit-scrollbar {
-  display: none;
-}
-
-.sale-item {
-  flex: 0 0 110px;
-  min-height: 118px;
-  border-radius: 20px;
-  background:
-    linear-gradient(180deg, rgba(255, 245, 241, 0.96), rgba(255, 233, 228, 0.96));
-  border: 1px solid rgba(255, 115, 81, 0.16);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.mini-label {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 5px 10px;
-  border-radius: 999px;
-  background: rgba(255, 255, 255, 0.86);
-  color: var(--accent);
-  font-size: 11px;
-  font-weight: 700;
-}
-
 .products-section {
+  flex-shrink: 0;
   display: flex;
   flex-direction: column;
   gap: 16px;
@@ -704,7 +647,7 @@ button {
   height: 46px;
   border: 1px solid rgba(203, 210, 224, 0.9);
   border-radius: 50%;
-  background: rgba(255, 255, 255, 0.96);
+  background: rgba(206, 228, 255, 0.96);
   color: #2f3748;
   box-shadow: 0 10px 24px rgba(39, 48, 69, 0.12);
   display: flex;

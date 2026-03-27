@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "作业项目模板",
   "scripts": {
-    "dev": "http-server src -o",
+    "dev": "http-server src -o -c-1",
     "check": "node tool/check.js",
     "pack": "node tool/pack.js"
   },
