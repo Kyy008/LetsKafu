@@ -253,10 +253,6 @@
                 </article>
               </div>
             </div>
-
-            <div class="load-more-wrap" id="load-more-wrap">
-              <button class="load-more-button" id="load-more-button" type="button">加载更多</button>
-            </div>
           </section>
         </main>
 
@@ -307,27 +303,5 @@
       </div>
     </div>
   </div>
-
-  <script>
-    const loadMoreButton = document.getElementById('load-more-button');
-    const loadMoreWrap = document.getElementById('load-more-wrap');
-    const leftColumn = document.getElementById('product-column-left');
-    const rightColumn = document.getElementById('product-column-right');
-
-    const leftCards = Array.from(leftColumn.children);
-    const rightCards = Array.from(rightColumn.children);
-
-    loadMoreButton.addEventListener('click', () => {
-      leftCards.forEach((card) => {
-        leftColumn.appendChild(card.cloneNode(true));
-      });
-
-      rightCards.forEach((card) => {
-        rightColumn.appendChild(card.cloneNode(true));
-      });
-
-      loadMoreWrap.hidden = true;
-    });
-  </script>
 </body>
 </html>
