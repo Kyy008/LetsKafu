@@ -1,15 +1,11 @@
 {
-  "name": "assignment-template",
+  "name": "爱风淘 LetsKafu",
   "version": "1.0.0",
-  "description": "作业项目模板",
+  "description": "爱风淘——移动端商城静态页面作业",
   "scripts": {
-    "dev": "http-server src -o -c-1",
-    "check": "node tool/check.js",
-    "pack": "node tool/pack.js"
+    "dev": "http-server src -o -c-1"
   },
-  "dependencies": {
-    "archiver": "^7.0.1"
-  },
+  "author": "Kyy008",
   "devDependencies": {
     "http-server": "^14.1.1"
   }
